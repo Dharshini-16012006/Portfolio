@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dharshini R | Full Stack Developer</title>
+<meta name="description" content="Portfolio of Dharshini R - Full Stack Developer">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a26;--border:#2a2a3a;
+--primary:#6366f1;--primary-glow:#818cf8;--accent:#22d3ee;
+--text:#e2e8f0;--text-muted:#94a3b8;--text-dim:#64748b;
+--gradient:linear-gradient(135deg,#6366f1,#22d3ee);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+nav{position:fixed;top:0;width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,15,.8);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a:hover{color:var(--primary-glow)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gradient);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:.3s}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,.12),transparent 70%);pointer-events:none}
+.hero-content{text-align:center;max-width:700px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:50px;border:1px solid var(--border);background:var(--surface);font-size:.8rem;color:var(--text-muted);margin-bottom:1.5rem}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:3.5rem;font-weight:800;line-height:1.1;margin-bottom:1rem}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--text-muted);font-size:1.1rem;margin-bottom:2rem;max-width:550px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:.75rem 1.8rem;border-radius:12px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary{background:var(--gradient);color:#fff;border:none;box-shadow:0 4px 20px rgba(99,102,241,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(99,102,241,.4)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--primary);background:var(--surface)}
+section{padding:5rem 2rem}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h2{font-size:2rem;font-weight:700;margin-bottom:.5rem}
+.section-title p{color:var(--text-muted);font-size:.95rem}
+.section-line{width:50px;height:3px;background:var(--gradient);margin:0 auto 1rem;border-radius:4px}
+.container{max-width:1000px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.about-text p{color:var(--text-muted);margin-bottom:1rem;font-size:.95rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;transition:all .3s}
+.stat-card:hover{border-color:var(--primary);transform:translateY(-4px)}
+.stat-card .num{font-size:2rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .label{color:var(--text-muted);font-size:.8rem;margin-top:.3rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.skill-category{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;transition:all .3s}
+.skill-category:hover{border-color:var(--primary);transform:translateY(-4px)}
+.skill-category h3{font-size:1rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill-tag{padding:.4rem .9rem;border-radius:8px;font-size:.8rem;font-weight:500;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);transition:.3s}
+.skill-tag:hover{border-color:var(--primary);color:var(--primary-glow)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradient);opacity:0;transition:.3s}
+.project-card:hover{border-color:var(--primary);transform:translateY(-4px)}
+.project-card:hover::before{opacity:1}
+.project-icon{width:48px;height:48px;border-radius:12px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+.project-card h3{font-size:1.1rem;margin-bottom:.5rem}
+.project-card .tag{font-size:.75rem;color:var(--accent);background:rgba(34,211,238,.1);padding:.2rem .6rem;border-radius:6px;display:inline-block;margin-bottom:.8rem}
+.project-card p{color:var(--text-muted);font-size:.85rem;line-height:1.6}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:2rem}
+.timeline-item::before{content:'';position:absolute;left:-2.45rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--gradient);border:3px solid var(--bg)}
+.timeline-item h3{font-size:1.1rem;margin-bottom:.3rem}
+.timeline-item .company{color:var(--primary-glow);font-size:.9rem;margin-bottom:.8rem}
+.timeline-item ul{list-style:none}
+.timeline-item li{color:var(--text-muted);font-size:.9rem;margin-bottom:.4rem;padding-left:1rem;position:relative}
+.timeline-item li::before{content:'▹';position:absolute;left:0;color:var(--accent)}
+.edu-grid{display:grid;gap:1.5rem}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.8rem;display:flex;justify-content:space-between;align-items:center;transition:all .3s;flex-wrap:wrap;gap:1rem}
+.edu-card:hover{border-color:var(--primary);transform:translateY(-3px)}
+.edu-card h3{font-size:1rem;margin-bottom:.3rem}
+.edu-card .school{color:var(--text-muted);font-size:.85rem}
+.edu-right{text-align:right}
+.edu-right .year{color:var(--primary-glow);font-size:.85rem;font-weight:600}
+.edu-right .grade{font-size:1.5rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all .3s}
+.cert-card:hover{border-color:var(--primary);transform:translateY(-3px)}
+.cert-card h3{font-size:.95rem;margin-bottom:.3rem}
+.cert-card p{color:var(--text-muted);font-size:.8rem}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-bottom:2rem}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;transition:all .3s;text-decoration:none;color:var(--text)}
+.contact-card:hover{border-color:var(--primary);transform:translateY(-4px)}
+.contact-card .icon{font-size:1.8rem;margin-bottom:.5rem}
+.contact-card h3{font-size:.85rem;color:var(--text-muted);margin-bottom:.3rem}
+.contact-card p{font-size:.9rem;word-break:break-all}
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--text-dim);font-size:.8rem}
+.reveal{opacity:0;transform:translateY(30px);transition:all .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--surface);padding:1.5rem;gap:1rem;border-bottom:1px solid var(--border)}
+.nav-links.active{display:flex}
+.hamburger{display:flex}
+.hero h1{font-size:2.2rem}
+.about-grid{grid-template-columns:1fr}
+.edu-card{flex-direction:column;align-items:flex-start}
+.edu-right{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-logo">DR.</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<section class="hero" id="home">
+<div class="hero-content reveal">
+<div class="hero-badge"><span class="dot"></span> Open to Opportunities</div>
+<h1>Hi, I'm <span class="gradient">Dharshini R</span></h1>
+<p>Aspiring Full Stack Developer passionate about building responsive web applications and solving real-world problems with clean, efficient code.</p>
+<div class="hero-btns">
+<a href="#contact" class="btn btn-primary">Get In Touch</a>
+<a href="resume.pdf" class="btn btn-outline">Resume</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>About Me</h2></div>
+<div class="about-grid">
+<div class="about-text reveal">
+<p>Motivated aspiring Full Stack Developer with a foundation in HTML, JavaScript, and Python. Experienced in building responsive web pages and basic dynamic applications using front-end and back-end technologies.</p>
+<p>Passionate about writing clean, efficient code and solving real-world problems. Eager to apply my skills in an internship opportunity while learning and contributing to a professional development team.</p>
+<p>📍 Based in Madurai, Tamil Nadu</p>
+</div>
+<div class="about-stats reveal">
+<div class="stat-card"><div class="num">3+</div><div class="label">Projects Built</div></div>
+<div class="stat-card"><div class="num">8.2</div><div class="label">Current CGPA</div></div>
+<div class="stat-card"><div class="num">5+</div><div class="label">Technologies</div></div>
+<div class="stat-card"><div class="num">4+</div><div class="label">Certificates</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills" style="background:var(--surface)">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Skills & Technologies</h2><p>Tools and technologies I work with</p></div>
+<div class="skills-grid">
+<div class="skill-category reveal"><h3><span>🎨</span> Front-end</h3><div class="skill-tags"><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span><span class="skill-tag">JavaScript</span></div></div>
+<div class="skill-category reveal"><h3><span>💻</span> Programming</h3><div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">Java</span></div></div>
+<div class="skill-category reveal"><h3><span>🗄️</span> Database</h3><div class="skill-tags"><span class="skill-tag">MySQL</span></div></div>
+<div class="skill-category reveal"><h3><span>🛠️</span> Dev Tools</h3><div class="skill-tags"><span class="skill-tag">VS Code</span><span class="skill-tag">Figma</span><span class="skill-tag">Canva</span></div></div>
+<div class="skill-category reveal"><h3><span>📄</span> Office</h3><div class="skill-tags"><span class="skill-tag">PowerPoint</span><span class="skill-tag">MS Word</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Projects</h2><p>Things I've built and contributed to</p></div>
+<div class="projects-grid">
+<div class="project-card reveal">
+<div class="project-icon">🤖</div>
+<span class="tag">Technozare 2024</span>
+<h3>Jarvis AI Assistant</h3>
+<p>Developed an AI-powered virtual assistant inspired by Jarvis, capable of handling voice commands and performing automated tasks.</p>
+</div>
+<div class="project-card reveal">
+<div class="project-icon">🌿</div>
+<span class="tag">Smart India Hackathon 2025</span>
+<h3>IoT-Based Smart Monitoring</h3>
+<p>Built an IoT-based system integrating electricity, gas and plant sensors for real-time environmental monitoring and alerts.</p>
+</div>
+<div class="project-card reveal">
+<div class="project-icon">🎪</div>
+<span class="tag">Tech Fest 2025</span>
+<h3>Tech Fest Organization</h3>
+<p>Served as an organizing team member for the college tech fest, coordinating events and managing technical logistics.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="experience" style="background:var(--surface)">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Experience</h2></div>
+<div class="timeline reveal">
+<div class="timeline-item">
+<h3>Web Development Intern</h3>
+<div class="company">FrontierWox Tech Private Limited</div>
+<ul>
+<li>Designing user-friendly interfaces using Figma</li>
+<li>Developing responsive web pages using HTML, CSS, and JavaScript</li>
+<li>Gaining hands-on experience in real-time web development projects</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Education</h2></div>
+<div class="edu-grid">
+<div class="edu-card reveal">
+<div><h3>B.E. Computer Science and Engineering</h3><div class="school">KLN College of Engineering</div></div>
+<div class="edu-right"><div class="year">2023 – 2027</div><div class="grade">8.2</div></div>
+</div>
+<div class="edu-card reveal">
+<div><h3>Higher Secondary Studies</h3><div class="school">Sairam Matriculation Hr. Sec. School</div></div>
+<div class="edu-right"><div class="year">2021 – 2023</div><div class="grade">8.5</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:var(--surface)">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Certificates</h2></div>
+<div class="cert-grid">
+<div class="cert-card reveal"><h3>National Level Technical Symposium</h3><p>Aisthetica 2K25</p></div>
+<div class="cert-card reveal"><h3>National Level Technical Symposium</h3><p>Gyan Mitra'25</p></div>
+<div class="cert-card reveal"><h3>Generative AI Project Bootcamp</h3><p>Skilldunia</p></div>
+<div class="cert-card reveal"><h3>PHP and MySQL Training</h3><p>Completed May 2025</p></div>
+<div class="cert-card reveal"><h3>Empowering Women Through AI</h3><p>Sep 2025</p></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-title reveal"><div class="section-line"></div><h2>Get In Touch</h2><p>Feel free to reach out for collaborations or opportunities</p></div>
+<div class="contact-grid">
+<a href="mailto:dharshinirajkumar16@gmail.com" class="contact-card reveal"><div class="icon">✉️</div><h3>Email</h3><p>dharshinirajkumar16@gmail.com</p></a>
+<a href="tel:+918807024756" class="contact-card reveal"><div class="icon">📱</div><h3>Phone</h3><p>+91 8807024756</p></a>
+<a href="https://linkedin.com/in/dharshini-r-664b082a1" target="_blank" class="contact-card reveal"><div class="icon">💼</div><h3>LinkedIn</h3><p>dharshini-r</p></a>
+<a href="https://github.com/Dharshini-16012006" target="_blank" class="contact-card reveal"><div class="icon">🐙</div><h3>GitHub</h3><p>Dharshini-16012006</p></a>
+</div>
+</div>
+</section>
+
+<footer><p>© 2025 Dharshini R. Built with ❤️</p></footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>navLinks.classList.toggle('active'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('active')));
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>
